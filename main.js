@@ -1,19 +1,23 @@
+// Select all plus icons
+const plusIcons = document.querySelectorAll(".plus-icon");
+const minusIcons = document.querySelectorAll(".minus-icon");
+const questionTexts = document.querySelectorAll('.question-text')
 
-
-document.addEventListener('DOMContentLoaded', function(){
-  const toggley = document.querySelector('.sidebar-toggle');
-  const sidebar = document.querySelector('.sidebar');
-  const closeBtn = document.querySelector('.close-btn');
-
+plusIcons.forEach((plusIcon, index) => {
+  plusIcon.addEventListener('click', function(){
+    plusIcon.style.display = 'none';
+    minusIcons[index].style.display = 'inline-block';
+    questionTexts[index].classList.add('show');
+    
+  })
   
-  toggley.addEventListener('click', function(){  
-      sidebar.classList.add("show-sidebar");
-  });
-  closeBtn.addEventListener('click', function(){  
-    sidebar.classList.remove("show-sidebar");
-  });
-  
+});
+
+minusIcons.forEach((minusIcon, index) => {
+  minusIcon.addEventListener('click', function(){
+    minusIcon.style.display = 'none';
+    plusIcons[index].style.display = 'inline-block';
+    questionTexts[index].classList.remove('show');    
+  })
 })
-
-
-
+  
